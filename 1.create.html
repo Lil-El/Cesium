@@ -18,6 +18,13 @@
       let viewer = new Cesium.Viewer("cesium", {
         terrainProvider: Cesium.createWorldTerrain(),
       });
+
+      let tileset = viewer.scence.primitives.add(
+        new Ceisum.Ceisum3DTileset({
+          url: Cesium.IonResource.fromAssetId(),
+        })
+      );
+      viewer.zoomTo(tileset);
     </script>
   </body>
 </html>
