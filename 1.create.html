@@ -1,27 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <script src="https://cesium.com/downloads/cesiumjs/releases/1.71/Build/Cesium/Cesium.js"></script>
-    <link
-      href="https://cesium.com/downloads/cesiumjs/releases/1.71/Build/Cesium/Widgets/widgets.css"
-      rel="stylesheet"
-    />
+    <meta charset="utf-8" />
+    <script src="https://cesium.com/downloads/cesiumjs/releases/1.72/Build/Cesium/Cesium.js"></script>
+    <link rel="stylesheet" href="./widgets.css" />
   </head>
   <body>
-    <div id="cesium" style="height: 100vh;"></div>
+    <div id="cesiumContainer" style="width: 700px; height: 400px;"></div>
     <script>
       Cesium.Ion.defaultAccessToken =
         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI3NGM4NmQ5ZS00NWJiLTQ3MmItOWY2NC1hYjI0YjExMjViMDQiLCJpZCI6MzE5OTMsInNjb3BlcyI6WyJhc3IiLCJnYyJdLCJpYXQiOjE1OTYyODcyNzd9.OA9tQ5_-jqejQUoBlBWkigjfK_irKu8GH_lP88hQYCs";
-      let viewer = new Cesium.Viewer("cesium", {
+      var viewer = new Cesium.Viewer("cesiumContainer", {
         terrainProvider: Cesium.createWorldTerrain(),
       });
 
-      let tileset = viewer.scence.primitives.add(
-        new Ceisum.Ceisum3DTileset({
-          url: Cesium.IonResource.fromAssetId(),
+      var tileset = viewer.scene.primitives.add(
+        new Cesium.Cesium3DTileset({
+          url: Cesium.IonResource.fromAssetId(137612),
         })
       );
       viewer.zoomTo(tileset);
